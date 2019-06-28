@@ -12,7 +12,18 @@ class Product{
     public $description;
     public $category_id;
     public $timestamp;
+    // used for paging products
+    public function countAll(){
  
+    $query = "SELECT id FROM " . $this->table_name . "";
+ 
+    $stmt = $this->conn->prepare( $query );
+    $stmt->execute();
+ 
+    $num = $stmt->rowCount();
+ 
+    return $num;
+    }
     public function __construct($db){
         $this->conn = $db;
     }
