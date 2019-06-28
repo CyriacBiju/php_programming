@@ -6,4 +6,4 @@ We start by installing the xampp web server in windows to start running the prog
 In the xampp folder,after installation,
 + go to mysql folder and place the data folder there.
 + All other folders and files have to be placed in the htdocs of xampp folder. 
-+ open <localhost/phpmyadmin/> to view the database and its tables category and product
++ open <http://localhost/phpmyadmin/> to view the database and its tables category and product
