@@ -1,15 +1,7 @@
 <?php
 class Category{
- 
-    // database connection and table name
-    private $conn;
-    private $table_name = "categories";
- 
-    // object properties
-    public $id;
-    public $name;
-     // used to read category name by its ID
-    function readName(){
+    // used to read category name by its ID
+function readName(){
      
     $query = "SELECT name FROM " . $this->table_name . " WHERE id = ? limit 0,1";
  
@@ -21,6 +13,15 @@ class Category{
      
     $this->name = $row['name'];
 }
+ 
+    // database connection and table name
+    private $conn;
+    private $table_name = "categories";
+ 
+    // object properties
+    public $id;
+    public $name;
+ 
     public function __construct($db){
         $this->conn = $db;
     }

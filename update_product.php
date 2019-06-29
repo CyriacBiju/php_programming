@@ -21,13 +21,6 @@ $product->id = $id;
 // read the details of product to be edited
 $product->readOne();
  
-// set page header
-$page_title = "Update Product";
-include_once "layout_header.php";
- 
-echo "<div class='right-button-margin'>";
-    echo "<a href='index.php' class='btn btn-default pull-right'>Read Products</a>";
-echo "</div>";
 ?>
 <?php 
 // if the form was submitted
@@ -77,27 +70,27 @@ if($_POST){
             <td>Category</td>
             <td>
             <?php
-            $stmt = $category->read();
-            
-            // put them in a select drop-down
-            echo "<select class='form-control' name='category_id'>";
-            
-                echo "<option>Please select...</option>";
-                while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)){
-                    $category_id=$row_category['id'];
-                    $category_name = $row_category['name'];
-            
-                    // current category of the product must be selected
-                    if($product->category_id==$category_id){
-                        echo "<option value='$category_id' selected>";
-                    }else{
-                        echo "<option value='$category_id'>";
-                    }
-            
-                    echo "$category_name</option>";
-                }
-            echo "</select>";
-            ?>
+$stmt = $category->read();
+ 
+// put them in a select drop-down
+echo "<select class='form-control' name='category_id'>";
+ 
+    echo "<option>Please select...</option>";
+    while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)){
+        $category_id=$row_category['id'];
+        $category_name = $row_category['name'];
+ 
+        // current category of the product must be selected
+        if($product->category_id==$category_id){
+            echo "<option value='$category_id' selected>";
+        }else{
+            echo "<option value='$category_id'>";
+        }
+ 
+        echo "$category_name</option>";
+    }
+echo "</select>";
+?>
             </td>
         </tr>
  
@@ -112,7 +105,13 @@ if($_POST){
 </form>
 <?php
  
-
+// set page header
+$page_title = "Update Product";
+include_once "layout_header.php";
+ 
+echo "<div class='right-button-margin'>";
+    echo "<a href='index.php' class='btn btn-default pull-right'>Read Products</a>";
+echo "</div>";
  
 // set page footer
 include_once "layout_footer.php";
